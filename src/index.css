@@ -1,1 +1,83 @@
 @import "tailwindcss";
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-default);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+body.light {
+  --bg-page: #f5f2e8;
+  --text-default: #333;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --accent: #4d8f76;
+  --accent-light: #dfccb7;
+  --muted: #666;
+  --banner-bg: #a98c64;
+}
+
+body.dark {
+  --bg-page: #1a1a1a;
+  --text-default: #e8e8e8;
+  --card-bg: #2a2a2a;
+  --card-border: #444;
+  --accent: #7fbf9e;
+  --accent-light: #5a4e3a;
+  --muted: #aaa;
+  --banner-bg: #6b5a44;
+}
+
+.page-bg {
+  background-color: var(--bg-page);
+}
+
+.text-default {
+  color: var(--text-default);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-default);
+}
+
+.card-border {
+  border-color: var(--card-border);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-accent-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.accent-light-bg {
+  background-color: var(--accent-light);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.banner-bg {
+  background-color: var(--banner-bg);
+}
+
+.theme-border {
+  border-color: var(--card-border);
+}
