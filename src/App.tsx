@@ -13,7 +13,7 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [infoData, setInfoData] = useState<any>(null);
-  const { data, deleteUser, editUser, addUser } = useTodo();
+  const { data, deleteUser, editUser, addUser, searchUser, selectFilter } = useTodo();
   const {
     values,
     handleChange,
@@ -122,6 +122,12 @@ const App = () => {
           }}
         >
           <h2 className="text-blue-500 text-[40px] font-bold">Users</h2>
+          <Input type="search" placeholder="Search user..." onChange={(e) => searchUser({ name: e.target.value })} />
+          <select name="" id="" onChange={(e) => selectFilter(e.target.value === "true")}>
+            <option value="all">All</option>
+            <option value="true">Active</option>
+            <option value="false">Inactive</option>
+          </select>
           <Button type="primary" onClick={() => showModal(0)}>
             Add User
           </Button>

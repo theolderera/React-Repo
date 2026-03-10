@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import {create} from "zustand";
 export const useTodo = create((set, get) => ({
   data: [
     {
@@ -35,7 +35,7 @@ export const useTodo = create((set, get) => ({
       return {
         data: state.data.map((e: any) => {
           if (e.id == user.id) {
-            return { ...e, ...user };
+            return {...e, ...user};
           }
           return e;
         }),
@@ -45,7 +45,26 @@ export const useTodo = create((set, get) => ({
   addUser: (user: any) => {
     set((state: any) => {
       return {
-        data: [...state.data, { ...user, id: state.data.length + 1 }],
+        data: [...state.data, {...user, id: state.data.length + 1}],
+      };
+    });
+  },
+  searchUser: (user: any) => {
+    set((state: any) => {
+      return {
+        data: state.data.filter((e: any) =>
+          e.name.toLowerCase().includes(user.name.toLowerCase()),
+        ),
+      };
+    });
+  },
+  selectFilter: (status: boolean | string) => {
+    set((state: any) => {
+      return {
+        data:
+          status === "all"
+            ? state.data
+            : state.data.filter((e: any) => e.status === status),
       };
     });
   },
