@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-let api = "http://37.27.29.18:8001/api/to-dos";
-let compApi = "http://37.27.29.18:8001/completed";
-export let apiImg = "http://37.27.29.18:8001/images";
+const api = "http://37.27.29.18:8001/api/to-dos";
+const compApi = "http://37.27.29.18:8001/completed";
+export const apiImg = "http://37.27.29.18:8001/images";
 interface IImage {
   id: number;
   imageName: string;
@@ -35,7 +35,7 @@ export const addData = createAsyncThunk(
   "counter/addData",
   async (newUser, { dispatch }) => {
     try {
-      let formData = new FormData();
+      const formData = new FormData();
       formData.append("Name", newUser.name);
       formData.append("Description", newUser.description);
       for (let i = 0; i < newUser.images.length; i++) {
@@ -82,7 +82,7 @@ export const addImg = createAsyncThunk(
   async ({ id, images }: { id: number; images: any }, { dispatch }) => {
     if (!images || images.length === 0) return;
     try {
-      let formData = new FormData();
+      const formData = new FormData();
       for (let i = 0; i < images.length; i++) {
         formData.append("Images", images[i]);
       }
